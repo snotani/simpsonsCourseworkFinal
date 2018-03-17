@@ -48,6 +48,16 @@ public class sliding implements ActionListener
 		frame.setSize(475,440);		//Set a size
 		frame.setResizable(true);  //To not resize the window
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);	//Close program on exit		
+		
+		
+		for(int i=0; i<imageArray.length; i++)
+		{
+			if (button[i].getIcon().toString().equals("bart" + i + ".jpg") ){
+				new scoreboard();
+				break;
+			}	
+		}
+		
 	}
 	
 
@@ -79,15 +89,12 @@ public class sliding implements ActionListener
 					count ++;
 					score.setText("          Your score: " + count + "          ");
 				}
-			}
-			
-			if(highScores == e.getSource()){
-					new scoreboard();
-			}	
-			
+			}			
 		}
 		
-		
+			if(highScores == e.getSource()){
+					new scoreboard();
+			}
 	}
 	
 	

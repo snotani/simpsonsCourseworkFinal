@@ -15,7 +15,7 @@ public class scoreboard
 		scoreBoard.setTitle("HIGH SCORES");	//Set a title
 		scoreBoard.setSize(460,400);		//Set a size
 		scoreBoard.setResizable(true);  //To not resize the window
-		scoreBoard.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);	//Close program on exit
+		scoreBoard.setDefaultCloseOperation(JFrame.HIDE_ON_CLOSE);	//Close program on exit
 		
 		scoreBoard.setContentPane(scores);	//Use panel on window
 		scores.setLayout(f);		//Set FlowLayout on window
