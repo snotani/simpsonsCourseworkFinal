@@ -2,7 +2,7 @@ import javax.swing.*;
 import java.awt.event.*;
 import java.awt.*;
 
-public class slidingTiles implements ActionListener
+public class sliding implements ActionListener
 {
 	private JFrame frame = new JFrame();	//Create a blank window
 	private JPanel panel = new JPanel();	//Create a panel
@@ -12,11 +12,10 @@ public class slidingTiles implements ActionListener
 	private ImageIcon temp = new ImageIcon();
 	private JButton[] button = new JButton[12];
 	
-	public slidingTiles()
+	public sliding()
 	{
 		for(int i=0; i<imageArray.length; i++){
 			imageArray[i] = new ImageIcon("bart" + i + ".jpg");
-			//imageArray[i] = new ImageIcon(getClass().getResource("bart" + i + ".jpg"));
 			button[i] = new JButton(imageArray[i]);
 			button[i].addActionListener(this);
 			panel.add(button[i]);
@@ -32,8 +31,11 @@ public class slidingTiles implements ActionListener
 		panel.setLayout(layout);		//Set GridLayout on window
 	}
 	
-	public void checkEmpty()
-	{
+	
+	public void actionPerformed(ActionEvent e)
+	{	
+		int x=13;
+	
 		for(int i=0; i<imageArray.length; i++)
 		{
 			if (button[i].getIcon().toString().equals("bart0.jpg"))
@@ -42,37 +44,22 @@ public class slidingTiles implements ActionListener
 				break;
 			}
 		}
-	}
-	
-	
-	public void actionPerformed(ActionEvent e)
-	{		
-			int x = 15;
-
-			for(int i=0; i<imageArray.length; i++)
-			{
-				if (button[i].getIcon().toString().equals("bart0.jpg"))
+		
+		for(int i=0; i<imageArray.length; i++)
+		{
+			if(button[i] == e.getSource()){
+				if( x ==(i+1) || x ==(i-1) || x ==(i+4) || x ==(i-4))
 				{
-					x=i;
-					break;
+					temp = imageArray[i];
+					imageArray[i] = imageArray[x];
+					imageArray[x] = temp;
+			
+					button[i].setIcon(imageArray[i]);
+					button[x].setIcon(imageArray[x]);
 				}
 			}
-			
-			for(int i=0; i<imageArray.length; i++)
-			{
-				if(button[i] == e.getSource()){
-					if( x ==(i+1) || x ==(i-1) || x ==(i+4) || x ==(i-4))
-					{
-						temp = imageArray[i];
-						imageArray[i] = imageArray[x];
-						imageArray[x] = temp;
-			
-						button[i].setIcon(imageArray[i]);
-						button[x].setIcon(imageArray[x]);
-					}
-				}
-			}
-			
+		}	
+
 	}
 	
 	
