@@ -2,11 +2,12 @@ import javax.swing.*;
 import java.awt.event.*;
 import java.awt.*;
 
-public class scoreboard 
+public class scoreboard
 {
 	JFrame scoreBoard = new JFrame();
 	JPanel scores = new JPanel();	//Create a panel
 	FlowLayout f = new FlowLayout();  //Set a layout
+	
 
 	public scoreboard()
 	{
