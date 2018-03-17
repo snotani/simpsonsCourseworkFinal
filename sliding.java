@@ -15,10 +15,11 @@ public class sliding implements ActionListener
 	private ImageIcon[] imageArray = new ImageIcon[12];
 	private ImageIcon temp = new ImageIcon();
 	private JButton[] button = new JButton[12];
-	private JButton newGame = new JButton("New Game");
 	
 	private int count;
-	private JLabel score = new JLabel("Your score: " + count);
+	private JLabel score = new JLabel("          Your score: " + count + "          ");
+	private JButton newGame = new JButton("New Game");
+	private JButton highScores = new JButton("High Scores");
 	
 	public sliding()
 	{
@@ -34,6 +35,8 @@ public class sliding implements ActionListener
 		buttons.setLayout(flow);
 		buttons.add(newGame);
 		buttons.add(score);
+		buttons.add(highScores);
+		highScores.addActionListener(this);
 		
 		frame.setContentPane(panel);	//Use panel on window
 		panel.setLayout(border);
@@ -74,10 +77,17 @@ public class sliding implements ActionListener
 					button[x].setIcon(imageArray[x]);
 					
 					count ++;
-					score.setText("Your score: " + count);
+					score.setText("          Your score: " + count + "          ");
 				}
 			}
-		}	
+			
+			if(highScores == e.getSource()){
+					new scoreboard();
+			}	
+			
+		}
+		
+		
 	}
 	
 	
