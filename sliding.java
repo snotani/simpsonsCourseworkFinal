@@ -16,7 +16,9 @@ public class sliding implements ActionListener
 	private ImageIcon temp = new ImageIcon();
 	private JButton[] button = new JButton[12];
 	private JButton newGame = new JButton("New Game");
-	private JLabel score = new JLabel("Your score: ");
+	
+	private int count;
+	private JLabel score = new JLabel("Your score: " + count);
 	
 	public sliding()
 	{
@@ -32,7 +34,6 @@ public class sliding implements ActionListener
 		buttons.setLayout(flow);
 		buttons.add(newGame);
 		buttons.add(score);
-		//buttons.setBackground(COLOR.ORANGE);
 		
 		frame.setContentPane(panel);	//Use panel on window
 		panel.setLayout(border);
@@ -46,6 +47,7 @@ public class sliding implements ActionListener
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);	//Close program on exit		
 	}
 	
+
 	public void actionPerformed(ActionEvent e)
 	{	
 		int x=13;
@@ -70,6 +72,9 @@ public class sliding implements ActionListener
 			
 					button[i].setIcon(imageArray[i]);
 					button[x].setIcon(imageArray[x]);
+					
+					count ++;
+					score.setText("Your score: " + count);
 				}
 			}
 		}	
