@@ -6,6 +6,6 @@ public class coursework
 {
 	public static void main(String[] args)
 	{
-		new slidingTiles();
+		new sliding();
 	}
 }
