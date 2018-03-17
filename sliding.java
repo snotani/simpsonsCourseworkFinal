@@ -32,5 +32,49 @@ public class slidingTiles implements ActionListener
 		panel.setLayout(layout);		//Set GridLayout on window
 	}
 	
+	public void checkEmpty()
+	{
+		for(int i=0; i<imageArray.length; i++)
+		{
+			if (button[i].getIcon().toString().equals("bart0.jpg"))
+			{
+				x=i;
+				break;
+			}
+		}
+	}
+	
+	
+	public void actionPerformed(ActionEvent e)
+	{		
+			int x = 15;
+
+			for(int i=0; i<imageArray.length; i++)
+			{
+				if (button[i].getIcon().toString().equals("bart0.jpg"))
+				{
+					x=i;
+					break;
+				}
+			}
+			
+			for(int i=0; i<imageArray.length; i++)
+			{
+				if(button[i] == e.getSource()){
+					if( x ==(i+1) || x ==(i-1) || x ==(i+4) || x ==(i-4))
+					{
+						temp = imageArray[i];
+						imageArray[i] = imageArray[x];
+						imageArray[x] = temp;
+			
+						button[i].setIcon(imageArray[i]);
+						button[x].setIcon(imageArray[x]);
+					}
+				}
+			}
+			
+	}
+	
+	
 	
 }
