@@ -2,6 +2,8 @@ import javax.swing.*;
 import javax.swing.JOptionPane.*;
 import java.awt.event.*;
 import java.awt.*;
+import javax.swing.AbstractAction;
+import java.util.Arrays;
 
 public class scoreboard 
 {
@@ -12,9 +14,10 @@ public class scoreboard
 	FlowLayout flow = new FlowLayout();  //Set a layout
 	BorderLayout border = new BorderLayout();
 	
-	JLabel name = new JLabel("Your Name: ");
-	String placeholder = "Siddharth Notani";
+	JLabel yourName = new JLabel("Your Name: ");
 	JTextField field = new JTextField(20);
+	String[] nameList = new String[10];
+	
 	
 	
 	public scoreboard()
@@ -26,11 +29,31 @@ public class scoreboard
 		scoreBoard.setDefaultCloseOperation(JFrame.HIDE_ON_CLOSE);	//Close program on exit
 		
 		input.setLayout(flow);
-		input.add(name);
+		input.add(yourName);
 		input.add(field);
 		
 		scoreBoard.setContentPane(board);	
 		board.setLayout(border);
 		board.add("South", input);
+		
+		field.addActionListener(EnterPress);
 	}
+	
+	Action EnterPress = new AbstractAction()
+	{
+		public void actionPerformed(ActionEvent e)
+		{
+			for (int i=0; i<12; i++)
+			{				
+				nameList[i] = field.getText();
+				System.out.println("Your name is: " + nameList[i]);
+				field.setText(null);
+				break;
+			}
+			
+			
+		}
+	};
+	
+	
 }
