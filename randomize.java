@@ -15,21 +15,45 @@ public class randomize extends sliding implements ActionListener
 	
 	public randomize()
 	{
-		//if puzzle is solvable, then randomize
-       	do {
-			int next = random.nextInt(12);
+		randomize_2();
 		
-				if (!numbers.contains(next)){
-					numbers.add(next);
-					imageArray[next] = new ImageIcon("bart" + next + ".jpg");
-					button[i].setIcon(imageArray[next]);
-					i++;
-				}
-			} while (numbers.size() < 12);
+		if(isSolvable())
+			System.out.println("Solvable!");
+		else{
+			System.out.println("Not solvable!");
+			randomize_2();
+		}
 	}
 	
-	public void actionPerformed(ActionEvent e)
-	{	
+	public boolean isSolvable(){
+		int inversions=0;
+		for (int z=0; z<10; z++){
+			
+			if (numbers.get(z+1) < numbers.get(z)){
+					inversions++;
+			}	
+		}
+		
+		return (inversions%2 == 0);
+	}
+	
+	public void randomize_2 (){
+		do {
+				int next = random.nextInt(12);
+		
+					if (!numbers.contains(next)){
+						numbers.add(next);
+						imageArray[next] = new ImageIcon("bart" + next + ".jpg");
+						button[i].setIcon(imageArray[next]);
+						i++;
+					}
+				} while (numbers.size() < 12);
+	}
+	
+	
+	
+	public void actionPerformed(ActionEvent e){	
+	
 		int x=15;
 	
 		for(int i=0; i<imageArray.length; i++)
