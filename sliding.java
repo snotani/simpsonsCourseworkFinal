@@ -1,6 +1,7 @@
 import javax.swing.*;
 import java.awt.event.*;
 import java.awt.*;
+import javax.swing.JOptionPane;
 
 public class sliding implements ActionListener
 {
@@ -16,10 +17,10 @@ public class sliding implements ActionListener
 	public ImageIcon temp = new ImageIcon();
 	public JButton[] button = new JButton[12];
 	
-	private int count;
-	private JLabel score = new JLabel("          Your score: " + count + "          ");
-	private JButton newGame = new JButton("New Game");
-	private JButton highScores = new JButton("High Scores");
+	public int count;
+	public JLabel score = new JLabel("          Your score: " + count + "          ");
+	public JButton newGame = new JButton("New Game");
+	public JButton highScores = new JButton("High Scores");
 	
 	public sliding()
 	{
@@ -52,16 +53,17 @@ public class sliding implements ActionListener
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);	//Close program on exit		
 		
 		
-		for(int i=0; i<imageArray.length; i++)
+		/*for(int i=0; i<imageArray.length; i++)
 		{
-			int x=13;
-			
-			/*if (button[i].getIcon().toString().equals("bart" + i + ".jpg")){
-				x=i;
-				new scoreboard();
+			imageArray[i] = new ImageIcon("bart" + i + ".jpg");
+			if (button[i].getIcon().toString().equals("bart" + i + ".jpg")){
+				JOptionPane.showMessageDialog(null, "Congratulations! The puzzle is solved");
+				i=12;
+			}
+			else {
 				break;
-			}*/
-		}
+			}
+		*/
 	}
 	
 
@@ -92,12 +94,13 @@ public class sliding implements ActionListener
 					
 					count ++;
 					score.setText("          Your score: " + count + "          ");
+					
 				}
 			}			
 		}
 		
 			if(highScores == e.getSource()){
-					new scoreboard();
+				new scoreboard();
 			}
 			
 			if(newGame == e.getSource()){
@@ -106,31 +109,7 @@ public class sliding implements ActionListener
 				score.setText("          Your score: " + count + "          ");
 				
 			}
-	}
+	}	
 	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
+		
 }
