@@ -12,9 +12,9 @@ public class sliding implements ActionListener
 	private FlowLayout flow = new FlowLayout();
 	private BorderLayout border = new BorderLayout();
 	
-	private ImageIcon[] imageArray = new ImageIcon[12];
-	private ImageIcon temp = new ImageIcon();
-	private JButton[] button = new JButton[12];
+	public ImageIcon[] imageArray = new ImageIcon[12];
+	public ImageIcon temp = new ImageIcon();
+	public JButton[] button = new JButton[12];
 	
 	private int count;
 	private JLabel score = new JLabel("          Your score: " + count + "          ");
@@ -30,12 +30,14 @@ public class sliding implements ActionListener
 			button[i] = new JButton(imageArray[i]);
 			button[i].addActionListener(this);
 			puzzle.add(button[i]);
+			//new randomize();
 		}
 		
 		buttons.setLayout(flow);
 		buttons.add(newGame);
 		buttons.add(score);
 		buttons.add(highScores);
+		newGame.addActionListener(this);
 		highScores.addActionListener(this);
 		
 		frame.setContentPane(panel);	//Use panel on window
@@ -52,12 +54,14 @@ public class sliding implements ActionListener
 		
 		for(int i=0; i<imageArray.length; i++)
 		{
-			if (button[i].getIcon().toString().equals("bart" + i + ".jpg") ){
+			int x=13;
+			
+			/*if (button[i].getIcon().toString().equals("bart" + i + ".jpg")){
+				x=i;
 				new scoreboard();
 				break;
-			}	
+			}*/
 		}
-		
 	}
 	
 
@@ -94,6 +98,13 @@ public class sliding implements ActionListener
 		
 			if(highScores == e.getSource()){
 					new scoreboard();
+			}
+			
+			if(newGame == e.getSource()){
+				new randomize();
+				count = 0;
+				score.setText("          Your score: " + count + "          ");
+				
 			}
 	}
 	
