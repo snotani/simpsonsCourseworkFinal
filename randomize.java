@@ -16,8 +16,8 @@ public class randomize extends sliding implements ActionListener
 	
 	public randomize()
 	{
+		//While loop was not working
 		randomize_2();
-		//System.out.println(numbers);
 		if(isSolvable())
 			System.out.println("Solvable!");
 		if(!isSolvable()){
