@@ -4,9 +4,10 @@ import java.awt.event.*;
 import java.awt.*;
 import javax.swing.AbstractAction;
 
-public class scoreboard extends sliding implements ActionListener
+public class scoreboard 
 {
-	private JFrame scoreBoard = new JFrame();
+	sliding s = new sliding();
+	JFrame scoreBoard = new JFrame();
 	JPanel scores = new JPanel();	//Create a panel
 	JPanel input = new JPanel();
 	JPanel board = new JPanel();
@@ -38,7 +39,7 @@ public class scoreboard extends sliding implements ActionListener
 	{
 		scoreBoard.setVisible(true);		//Make it visible
 		scoreBoard.setTitle("High Scores");	//Set a title
-		scoreBoard.setSize(475,440);		//Set a size
+		scoreBoard.setSize(450,430);		//Set a size
 		scoreBoard.setResizable(false);  //To not resize the window
 		scoreBoard.setDefaultCloseOperation(JFrame.HIDE_ON_CLOSE);	//Close program on exit
 		
@@ -76,24 +77,18 @@ public class scoreboard extends sliding implements ActionListener
 	{
 		public void actionPerformed(ActionEvent e)
 		{
+			int count = s.getCount();
 			String string = Integer.toString(count);
 			int i=0;
-			
+				
 				nameList[i] = field.getText();
-				System.out.println("Name: " + nameList[i] + " Score: " + count);
+				//System.out.println("Name: " + nameList[i] + " Score: " + count);
 				none2.setText(nameList[i]);
 				count2.setText(string);
 				field.setText(null);
-				i++;
-
-			for(i=0; i<imageArray.length; i++)
-			{
-				if(button[i] == e.getSource()){
-					count ++;
-					score.setText("          Your score: " + count + "          ");
-				}		
-			}
-			
+				
+				
+		
 		}
 	};	
 }
