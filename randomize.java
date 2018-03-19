@@ -40,7 +40,6 @@ public class randomize extends sliding implements ActionListener
 			if(isSolvable())
 			System.out.println("Solvable!");
 		}
-
 	}
 	
 	public boolean isSolvable(){
@@ -101,17 +100,19 @@ public class randomize extends sliding implements ActionListener
 				}
 			}			
 		}
-		
-		if(highScores == e.getSource()){
-				new scoreboard();
-			}
+			if(highScores == e.getSource()){
+					new scoreboard();
+					frame.dispose();
+				}
 			
 			if(newGame == e.getSource()){
 				new randomize();
 				count = 0;
 				score.setText("          Your score: " + count + "          ");
+				
 			}
-	
+		
+		
 	}
 }
 

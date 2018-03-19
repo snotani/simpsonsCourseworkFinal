@@ -77,36 +77,21 @@ public class scoreboard extends sliding implements ActionListener
 		public void actionPerformed(ActionEvent e)
 		{
 			String string = Integer.toString(count);
+			int i=0;
 			
-			for (int i=0; i<12; i++)
-			{			
 				nameList[i] = field.getText();
 				System.out.println("Name: " + nameList[i] + " Score: " + count);
 				none2.setText(nameList[i]);
 				count2.setText(string);
 				field.setText(null);
-				break;
-			}
-			
-			int x=13;
+				i++;
 
-			for(int i=0; i<imageArray.length; i++)
+			for(i=0; i<imageArray.length; i++)
 			{
 				if(button[i] == e.getSource()){
-					if( x ==(i+1) || x ==(i-1) || x ==(i+4) || x ==(i-4))
-					{
-						temp = imageArray[i];
-						imageArray[i] = imageArray[x];
-						imageArray[x] = temp;
-			
-						button[i].setIcon(imageArray[i]);
-						button[x].setIcon(imageArray[x]);
-					
-						count ++;
-						score.setText("          Your score: " + count + "          ");
-					
-					}
-				}			
+					count ++;
+					score.setText("          Your score: " + count + "          ");
+				}		
 			}
 			
 		}
