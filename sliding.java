@@ -53,16 +53,15 @@ public class sliding implements ActionListener
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);	//Close program on exit		
 		
 		
-		if (button[0].getIcon().toString().equals("bart0.jpg") && button[1].getIcon().toString().equals("bart1.jpg") && button[2].getIcon().toString().equals("bart2.jpg")
+		/*if (button[0].getIcon().toString().equals("bart0.jpg") && button[1].getIcon().toString().equals("bart1.jpg") && button[2].getIcon().toString().equals("bart2.jpg")
 			&& button[3].getIcon().toString().equals("bart3.jpg")&& button[4].getIcon().toString().equals("bart4.jpg")&& button[5].getIcon().toString().equals("bart5.jpg")
 			&& button[6].getIcon().toString().equals("bart6.jpg")&& button[7].getIcon().toString().equals("bart7.jpg")&& button[8].getIcon().toString().equals("bart8.jpg")
 			&& button[9].getIcon().toString().equals("bart9.jpg")&& button[10].getIcon().toString().equals("bart10.jpg")&& button[11].getIcon().toString().equals("bart11.jpg")){
 			JOptionPane.showMessageDialog(null, "Congratulations! The puzzle is solved");
-		}
+		}*/
 
 	}
 	
-
 	public void actionPerformed(ActionEvent e)
 	{	
 		int x=13;
@@ -112,8 +111,6 @@ public class sliding implements ActionListener
 			&& button[6].getIcon().toString().equals("bart6.jpg")&& button[7].getIcon().toString().equals("bart7.jpg")&& button[8].getIcon().toString().equals("bart8.jpg")
 			&& button[9].getIcon().toString().equals("bart9.jpg")&& button[10].getIcon().toString().equals("bart10.jpg")&& button[11].getIcon().toString().equals("bart11.jpg")){
 				JOptionPane.showMessageDialog(null, "Congratulations! The puzzle is solved");
-				new scoreboard();
-				frame.dispose();
 			}	
 	}		
 }

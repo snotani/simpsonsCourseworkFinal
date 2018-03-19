@@ -12,7 +12,6 @@ public class randomize extends sliding implements ActionListener
 	
 	private int i = 0;
 	private int next = random.nextInt(12);
-	public ImageIcon[] randomArray = new ImageIcon[12];
 	
 	public randomize()
 	{
@@ -55,23 +54,26 @@ public class randomize extends sliding implements ActionListener
 	}
 	
 	public void randomize_2 (){
-		do {
-				int next = random.nextInt(12);
+			do {
+					int next = random.nextInt(12);
 		
 					if (!numbers.contains(next)){
 						numbers.add(next);
-						randomArray[next] = new ImageIcon("bart" + next + ".jpg");
-						button[i].setIcon(randomArray[next]);
+						imageArray[next] = new ImageIcon("bart" + next + ".jpg");
+						button[i].setIcon(imageArray[next]);
+						imageArray[i] = imageArray[next];
+						System.out.println(imageArray[i]);
 						i++;
 					}
 				} while (numbers.size() < 12);
+				
 	}
 	
 	
 	
 	public void actionPerformed(ActionEvent e){	
 	
-		int x=15;
+		int x=13;
 	
 		for(int i=0; i<imageArray.length; i++)
 		{
@@ -111,8 +113,14 @@ public class randomize extends sliding implements ActionListener
 				score.setText("          Your score: " + count + "          ");
 				
 			}
-		
-		
+			
+			/*if (button[0].getIcon().toString().equals("bart0.jpg") && button[1].getIcon().toString().equals("bart1.jpg") && button[2].getIcon().toString().equals("bart2.jpg")
+			&& button[3].getIcon().toString().equals("bart3.jpg")&& button[4].getIcon().toString().equals("bart4.jpg")&& button[5].getIcon().toString().equals("bart5.jpg")
+			&& button[6].getIcon().toString().equals("bart6.jpg")&& button[7].getIcon().toString().equals("bart7.jpg")&& button[8].getIcon().toString().equals("bart8.jpg")
+			&& button[9].getIcon().toString().equals("bart9.jpg")&& button[10].getIcon().toString().equals("bart10.jpg")&& button[11].getIcon().toString().equals("bart11.jpg")){
+			JOptionPane.showMessageDialog(null, "Congratulations! The puzzle is solved");
+			}*/
+			
 	}
 }
 
