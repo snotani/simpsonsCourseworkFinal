@@ -12,25 +12,43 @@ public class randomize extends sliding implements ActionListener
 	
 	private int i = 0;
 	private int next = random.nextInt(12);
+	public ImageIcon[] randomArray = new ImageIcon[12];
 	
 	public randomize()
 	{
 		randomize_2();
-		
+		//System.out.println(numbers);
 		if(isSolvable())
 			System.out.println("Solvable!");
-		else{
-			System.out.println("Not solvable!");
+		if(!isSolvable()){
 			randomize_2();
+			if(isSolvable())
+			System.out.println("Solvable!");
 		}
+		if(!isSolvable()){
+			randomize_2();
+			if(isSolvable())
+			System.out.println("Solvable!");
+		}
+		if(!isSolvable()){
+			randomize_2();
+			if(isSolvable())
+			System.out.println("Solvable!");
+		}
+		if(!isSolvable()){
+			randomize_2();
+			if(isSolvable())
+			System.out.println("Solvable!");
+		}
+
 	}
 	
 	public boolean isSolvable(){
 		int inversions=0;
 		for (int z=0; z<10; z++){
-			
 			if (numbers.get(z+1) < numbers.get(z)){
 					inversions++;
+					//System.out.println(inversions);
 			}	
 		}
 		
@@ -43,8 +61,8 @@ public class randomize extends sliding implements ActionListener
 		
 					if (!numbers.contains(next)){
 						numbers.add(next);
-						imageArray[next] = new ImageIcon("bart" + next + ".jpg");
-						button[i].setIcon(imageArray[next]);
+						randomArray[next] = new ImageIcon("bart" + next + ".jpg");
+						button[i].setIcon(randomArray[next]);
 						i++;
 					}
 				} while (numbers.size() < 12);

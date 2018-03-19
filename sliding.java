@@ -7,7 +7,7 @@ public class sliding implements ActionListener
 {
 	private JFrame frame = new JFrame();	//Create a blank window
 	private JPanel panel = new JPanel();
-	public JPanel puzzle = new JPanel();	//Create a panel
+	private JPanel puzzle = new JPanel();	//Create a panel
 	private JPanel buttons = new JPanel();
 	private GridLayout grid = new GridLayout(3,4);  //Set a layout
 	private FlowLayout flow = new FlowLayout();
@@ -105,7 +105,7 @@ public class sliding implements ActionListener
 			
 			if(newGame == e.getSource()){
 				new randomize();
-				count = 0;
+				//count = 0;
 				score.setText("          Your score: " + count + "          ");
 				
 			}
