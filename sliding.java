@@ -95,6 +95,7 @@ public class sliding implements ActionListener
 		/**
 		* These instructions are used to set the main frame.
 		* setVisible sets the window to be visible.
+		* setTitle sets the Title of the window at the top
 		* setSize sets the size of the window.
 		* setResizable is set to false, as we don't want the window to be resized as it can destroy the puzzle.
 		* setDefaultCloseOperation is set on "exit on close" so when the window is closed, the program is finished running.
@@ -112,7 +113,7 @@ public class sliding implements ActionListener
 	* and is used in the scoreboard class.
 	*/
 	
-	public int getCount(){
+	public int getScore(){
 		int count=0;
 		count++;
 		count=14;
